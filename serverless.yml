@@ -31,7 +31,6 @@ provider:
 plugins:
   - serverless-finch
   - serverless-single-page-app-plugin
-  - serverless-cloudfront-invalidate
 
 custom:
   client:
@@ -42,15 +41,6 @@ custom:
 
   s3BucketName: ${self:custom.client.bucketName}
   s3LocalPath: ${self:custom.client.distributionFolder}/
-
-  cloudfrontInvalidate:
-    - distributionId: ${env:DISTRIBUTION_ID} 
-      autoInvalidate: true # Can be set to false to avoid automatic invalidation after the deployment. Useful if you want to manually trigger the invalidation later. Defaults to true.
-      items: # one or more paths required
-        - '/*'
-      stage: ${self:provider.stage} # conditional, the stage that this cloudfront invalidation should be created
-        # this should match the provider's stage you declared, e.g. "dev" but not "prod" in this case
-        # an invalidation for this distribution will be created when executing `sls deploy --stage dev`
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:

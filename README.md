@@ -12,16 +12,13 @@ Builds the app and deploys to S3 bucket
 
 Invalidates CloudFront cache. 
 
-Note: `DISTRIBUTION_ID` env is required to specify CloudFront you want to invalidate.
-
-Example:
-```sh
-DISTRIBUTION_ID=<your distribution id> yarn run cloudfront:invalidate
-```
-
 ### `cloudfront:build:deploy`
 
-Setup Cloud Formation according serverless config, build and deploy the app
+Build, deploy and creating CloudFront invalidation
+
+### `cloudfront:setup:build:deploy`
+
+Setup Cloud Formation according serverless config, build and deploy the app. Also, invalidation will be created
 
 ### `yarn start` OR `npm run start`
 
