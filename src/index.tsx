@@ -8,6 +8,9 @@ import * as serviceWorker from './serviceWorker';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from 'axios';
 
+// hardcoded for crosscheck
+localStorage.setItem('authorization_token', process.env.REACT_APP_AUTH_TOKEN || '')
+
 axios.interceptors.response.use(
   response => {
     return response;
