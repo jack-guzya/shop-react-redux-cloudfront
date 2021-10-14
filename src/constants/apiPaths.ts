@@ -3,10 +3,10 @@ const { REACT_APP_API_PATH } = process.env;
 
 const API_PATHS = {
   products: `${REACT_APP_API_PATH || DEFAULT_API_PATH}`,
-  order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  import: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  bff: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  cart: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+  order: `${REACT_APP_API_PATH || DEFAULT_API_PATH}`,
+  import: `${REACT_APP_API_PATH || DEFAULT_API_PATH}`,
+  bff: `${REACT_APP_API_PATH || DEFAULT_API_PATH}`,
+  cart: `${REACT_APP_API_PATH || DEFAULT_API_PATH}`,
 };
 
 export default API_PATHS;
