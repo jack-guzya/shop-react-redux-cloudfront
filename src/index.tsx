@@ -8,13 +8,20 @@ import * as serviceWorker from './serviceWorker';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from 'axios';
 
+// hardcoded for crosscheck
+localStorage.setItem('authorization_token', process.env.REACT_APP_AUTH_TOKEN || '')
+
 axios.interceptors.response.use(
   response => {
     return response;
   },
   function(error) {
-    if (error?.response?.status === 400) {
-      alert(error.response.data?.data);
+    const responseStatus = error?.response?.status;
+    if (responseStatus === 400) {
+      alert(error?.response?.data?.data);
+    }
+    if(responseStatus === 401 || responseStatus === 403) {
+      alert(error?.response?.data?.message)
     }
 
     return Promise.reject(error?.response ?? error);
